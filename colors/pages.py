@@ -28,6 +28,7 @@ class Task(Page):
 
     def before_next_page(self):
         self.player.set_answered_color()
+        self.player.set_payoff()
 
 
 class Results(Page):

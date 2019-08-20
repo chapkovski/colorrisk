@@ -26,10 +26,12 @@ class Constants(BaseConstants):
     for i in range(num_difficulty_choices):
         DIFFICULTY_CHOICES.append(min_step + i * step_of_steps)
     payoffs = list(range(num_difficulty_choices + 1, 1, -1))  # quick lazy fix for payoffs for now
+    payoff_dict = dict(zip(DIFFICULTY_CHOICES, payoffs))  # that's an ugly lazy way of doing things. Should be replaced
     hue = 10  # these three parameters define starting color
     saturation = 100
     lightness = 64
     start_color = {'hue': hue, 'saturation': saturation, 'lightness': lightness}
+    payoff_if_fail = c(0)
 
 
 class Subsession(BaseSubsession):
@@ -55,6 +57,12 @@ class Player(BasePlayer):
     def set_answered_color(self):
         # we correct for minus 1 because numbers are shown starting from 1
         self.answered_color = self.colors[self.answer - 1]
+
+    def set_payoff(self):
+        if self.answer == self.todo_num:
+            self.payoff = Constants.payoff_dict[self.step]
+        else:
+            self.payoff = Constants.payoff_if_fail
 
     def generate_colors(self):
         ub = Constants.hue + Constants.num_colors * self.step

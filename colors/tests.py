@@ -8,6 +8,6 @@ import random
 class PlayerBot(Bot):
 
     def play_round(self):
-        yield Choice, {'choice': random.randint(0, 16)}
-        yield Task, {'task': random.randint(0, 16)}
+        yield Choice, {'step': random.choice(Constants.DIFFICULTY_CHOICES)}
+        yield Task, {'answer': random.randint(1, Constants.num_colors)}
         yield Results

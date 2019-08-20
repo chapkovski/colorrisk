@@ -2,16 +2,17 @@
 {% load otree static %}
 
 {% block title %}
-    Choose difficulty level
+    Choose difficulty level. Period {{ view.round_number }} of {{ Constants.num_rounds }}
 {% endblock %}
 
 {% block content %}
     <div class="table-wrapper">
-        <table class="table table-bordered">
+        <table class="table table-bordered text-center" >
             <thead class="border-0">
-            <th class="border-0">Starting color</th>
-            <th class="border-0">Ending color</th>
-            <th class="border-0">Payoff</th>
+            <th class="border-0" width="10%">Starting color</th>
+            <th class="border-0" width="10%">Ending color</th>
+            <th class="border-0" width="20%">Payoff</th>
+            <th class="border-0" width="20%">Your choice</th>
             </thead>
             {% for i,j,l in  colorset %}
                 <tr>
@@ -23,7 +24,7 @@
                         style="background-color:hsla({{ i.hue }}, {{ i.saturation }}%, {{ i.lightness }}%);">&nbsp;
                     </td>
                     <td>{{ j|c }}</td>
-                    <td> {{ l.tag }}</td>
+                    <td class="text-center"> {{ l.tag }}</td>
                 </tr>
 
             {% endfor %}
@@ -37,6 +38,8 @@
 {% endblock %}
 {% block styles %}
     <style>
+    .table-wrapper{
+        max-width: 300px;}
 
 
     </style>

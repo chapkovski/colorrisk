@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Choose color
+    Choose color. Period {{ view.round_number }} of {{ Constants.num_rounds }}
 {% endblock %}
 
 {% block content %}
@@ -11,7 +11,7 @@
         ...</h2>
     <h1>Select colors</h1>
     {% for i in player.colors %}
-        <h2 style="background-color:hsla({{ i }}, {{ Constants.saturation }}%, {{ Constants.lightness }}%);">{{ forloop.counter }}</h2>
+        <h2  style="background-color:hsla({{ i }}, {{ Constants.saturation }}%, {{ Constants.lightness }}%);">{{ forloop.counter }}</h2>
     {% endfor %}
     {% formfields %}
 
