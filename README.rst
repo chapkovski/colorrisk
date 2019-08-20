@@ -13,9 +13,9 @@ The degree of difficulty results in different renumeration per each successful t
 Parameters
 ----------
 
-For now most of the parameters are set in `Constants`. It includes:
+For now most of the parameters are set in ``Constants``. It includes:
 
-- `hue`, `saturation` and `lightness` for the initial (starting) color.
+- ``hue``, ``saturation`` and ``lightness`` for the initial (starting) color.
 - number of colors to guess from
 - some other parameters such as step
 
