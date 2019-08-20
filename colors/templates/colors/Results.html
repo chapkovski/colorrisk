@@ -6,7 +6,14 @@
 {% endblock %}
 
 {% block content %}
+    <div class="alert alert-info">
+        {% if player.answer == player.todo_num %}
 
+            You have guessed correctly, congratulations!
+        {% else %}
+            Your guess was wrong! :(
+        {% endif %}
+    </div>
     {% next_button %}
 {% endblock %}
 

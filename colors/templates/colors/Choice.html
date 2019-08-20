@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Choose difficulty level
+{% endblock %}
+
+{% block content %}
+    <div class="table-wrapper">
+        <table class="table table-bordered">
+            <thead class="border-0">
+            <th class="border-0">Starting color</th>
+            <th class="border-0">Ending color</th>
+            <th class="border-0">Payoff</th>
+            </thead>
+            {% for i,j,l in  colorset %}
+                <tr>
+                    <td class="content"
+                        style="background-color:hsla({{ Constants.start_color.hue }}, {{ Constants.start_color.saturation }}%, {{ Constants.start_color.lightness }}%);">
+                        &nbsp;
+                    </td>
+                    <td class="content"
+                        style="background-color:hsla({{ i.hue }}, {{ i.saturation }}%, {{ i.lightness }}%);">&nbsp;
+                    </td>
+                    <td>{{ j|c }}</td>
+                    <td> {{ l.tag }}</td>
+                </tr>
+
+            {% endfor %}
+
+        </table>
+    </div>
+
+
+    {% next_button %}
+
+{% endblock %}
+{% block styles %}
+    <style>
+
+
+    </style>
+
+{% endblock %}

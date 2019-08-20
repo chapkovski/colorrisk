@@ -3,14 +3,31 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class MyPage(Page):
-    pass
+class Choice(Page):
+    form_model = 'player'
+    form_fields = ['step']
+
+    def vars_for_template(self) -> dict:
+        colors = [{'hue': i, 'saturation': Constants.saturation, 'lightness': Constants.lightness} for i in
+                  self.player.get_max_colors()]
+        payoffs = Constants.payoffs
+        choices = self.get_form()["step"]
+        return {'colorset': zip(colors, payoffs, choices)}
+
+    def before_next_page(self):
+        self.player.generate_colors()
 
 
-class ResultsWaitPage(WaitPage):
+class Task(Page):
+    form_model = 'player'
+    form_fields = ['answer']
 
-    def after_all_players_arrive(self):
-        pass
+    def vars_for_template(self) -> dict:
+        step = 1
+        return {'colors': [step * i for i in range(1, 17)]}
+
+    def before_next_page(self):
+        self.player.set_answered_color()
 
 
 class Results(Page):
@@ -18,7 +35,7 @@ class Results(Page):
 
 
 page_sequence = [
-    MyPage,
-    ResultsWaitPage,
+    Choice,
+    Task,
     Results
 ]

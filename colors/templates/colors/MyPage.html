@@ -6,6 +6,11 @@
 {% endblock %}
 
 {% block content %}
+    {% for i in colors %}
+<h1 style="background-color:hsla({{i}}, 100%, 64%);">...</h1>
+    {% endfor %}
+
+
 
     {% next_button %}
 

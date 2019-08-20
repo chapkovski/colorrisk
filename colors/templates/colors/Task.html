@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Choose color
+{% endblock %}
+
+{% block content %}
+    <h1>Color to guess:</h1>
+    <h2 style="background-color:hsla({{ player.todo_color }}, {{ Constants.saturation }}%, {{ Constants.lightness }}%);">
+        ...</h2>
+    <h1>Select colors</h1>
+    {% for i in player.colors %}
+        <h2 style="background-color:hsla({{ i }}, {{ Constants.saturation }}%, {{ Constants.lightness }}%);">{{ forloop.counter }}</h2>
+    {% endfor %}
+    {% formfields %}
+
+
+
+    {% next_button %}
+
+{% endblock %}
