@@ -15,7 +15,7 @@ Risk elicitation via picking the color difficulty
 class Constants(BaseConstants):
     name_in_url = 'colors'
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 10
     min_step = 1.5
     num_rows = 4
     num_columns = 4
