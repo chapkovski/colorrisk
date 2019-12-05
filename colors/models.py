@@ -2,7 +2,7 @@ from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
 )
-from otree.db.models import _PickleField as PickleField
+from .fields import PickleField
 import random
 
 author = 'Alexis Belianin, Philipp Chapkovski, Gregory Chernov, HSE-Moscow'
