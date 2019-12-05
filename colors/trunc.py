@@ -1,3 +1,5 @@
+limm = 28
+
 from scipy.stats import truncnorm
 import matplotlib.pyplot as plt
 import numpy as np
@@ -80,7 +82,7 @@ def linear_gradient(start_hex, finish_hex="#FFFFFF", n=10):
     return color_dict(RGB_list)
 
 
-limm = 28
+
 startLabC = LabColor(50, -limm, -limm)
 endLabC = LabColor(50, limm, limm)
 convStart = convClamp(startLabC)
